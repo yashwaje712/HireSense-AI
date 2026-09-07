@@ -4,109 +4,152 @@
 
 ### Intelligent Resume & Job Matching System
 
-**AI-powered resume analysis that helps you understand how well your resume aligns with a target role.**
+**Resume intelligence for better job alignment.**
 
 [![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Scikit--learn](https://img.shields.io/badge/Scikit--learn-ML-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
 [![PyMuPDF](https://img.shields.io/badge/PyMuPDF-PDF-555555)](https://pymupdf.readthedocs.io/)
 [![License](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
+
+**Upload → Analyze → Understand → Improve**
 
 </div>
 
 ---
 
-## 🚀 Overview
+## 📌 About the Project
 
-**HireSense AI** is a portfolio-focused Natural Language Processing (NLP) and Machine Learning application built with Python and Streamlit.
+**HireSense AI** is a Python + Streamlit application that analyzes a resume against a target job description using NLP and machine-learning techniques.
 
-It compares a **resume PDF** with a **target job description**, then turns the text into an easy-to-read compatibility report. The system combines PDF text extraction, TF-IDF vectorization, cosine similarity, skill detection, skill-gap analysis, keyword analysis, resume-section checks, recommendations, and downloadable reporting.
+The system extracts text from a PDF resume, compares it with the job description, detects relevant skills, identifies skill gaps, analyzes keywords and resume sections, and produces an actionable report.
 
-> **Goal:** Make resume–job alignment easier to understand through practical, explainable analysis.
+### 🎯 Problem
 
----
+Job descriptions contain many requirements, while resumes often use different wording or omit important skills. Manually checking alignment can be time-consuming.
 
-## ✨ Key Features
+### 💡 Solution
 
-| Feature | What it does |
-|---|---|
-| 📄 **PDF Resume Parser** | Extracts text from uploaded resumes |
-| 🎯 **Resume Match Score** | Measures resume/JD similarity using TF-IDF + cosine similarity |
-| 🧠 **Skill Detection** | Detects supported technical and AI/ML skills |
-| ✅ **Matched Skills** | Shows skills found in both the resume and job description |
-| 🔎 **Skill Gap Analysis** | Identifies detected job skills missing from the resume |
-| 📈 **Skill Coverage** | Shows how much of the detected job-skill set is covered |
-| 🔑 **Keyword Analysis** | Highlights important repeated terms from the job description |
-| 📋 **Resume Section Check** | Checks common sections such as Education, Experience, Projects and Skills |
-| 💡 **Recommendations** | Generates practical areas to strengthen |
-| 📥 **PDF Report** | Exports the current analysis as a report |
-| 📊 **Streamlit Dashboard** | Presents results through a simple interactive interface |
+HireSense AI provides an **explainable resume–job compatibility analysis** so users can quickly understand what aligns and where the resume could be strengthened.
 
 ---
 
-## 🖥️ Application Flow
+## ✨ Features at a Glance
+
+| | Feature | Description |
+|---|---|---|
+| 📄 | **PDF Resume Parser** | Extract text from uploaded PDF resumes |
+| 🎯 | **Match Score** | TF-IDF + cosine similarity between resume and job description |
+| 🧠 | **Skill Detection** | Detect supported technical and AI/ML skills |
+| ✅ | **Matched Skills** | Find skills appearing in both texts |
+| 🔎 | **Skill Gap Analysis** | Identify detected job skills missing from the resume |
+| 📈 | **Skill Coverage** | Calculate detected job-skill coverage |
+| 🔑 | **Keyword Analysis** | Surface frequently occurring job-description terms |
+| 📋 | **Section Analysis** | Check common resume sections |
+| 💡 | **Recommendations** | Suggest areas to strengthen |
+| 📥 | **PDF Report** | Export the analysis as a report |
+| 📊 | **Dashboard** | Interactive Streamlit interface |
+
+---
+
+## 🧠 How It Works
 
 ```text
-┌─────────────────────┐       ┌──────────────────────┐
-│   Resume PDF        │       │   Job Description    │
-└──────────┬──────────┘       └──────────┬───────────┘
-           │                             │
-           ▼                             ▼
-┌─────────────────────┐       ┌──────────────────────┐
-│  PDF Text Extraction│       │   Text Preprocessing  │
-└──────────┬──────────┘       └──────────┬───────────┘
-           │                             │
-           └──────────────┬──────────────┘
-                          ▼
-              ┌────────────────────────┐
-              │ NLP + ML Analysis       │
-              │ • TF-IDF Similarity     │
-              │ • Skill Detection       │
-              │ • Skill Gap             │
-              │ • Keywords              │
-              │ • Section Checks        │
-              └────────────┬───────────┘
-                           ▼
-              ┌────────────────────────┐
-              │ HireSense AI Dashboard │
-              │ Score • Skills • Gaps  │
-              │ Keywords • Suggestions │
-              │        • PDF Report    │
-              └────────────────────────┘
+                    ┌─────────────────────┐
+                    │    Resume PDF       │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │  PDF Text Parser    │
+                    │     PyMuPDF         │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+┌───────────────────┐   ┌─────────────────────┐
+│ Job Description   │──►│    NLP Analysis     │
+└───────────────────┘   │ • TF-IDF            │
+                        │ • Cosine Similarity  │
+                        │ • Skill Extraction   │
+                        │ • Keyword Analysis   │
+                        │ • Section Analysis   │
+                        └──────────┬──────────┘
+                                   │
+                                   ▼
+                        ┌─────────────────────┐
+                        │  HireSense AI       │
+                        │     Dashboard       │
+                        ├─────────────────────┤
+                        │ Match Score         │
+                        │ Skills & Skill Gaps │
+                        │ Keywords            │
+                        │ Recommendations     │
+                        │ PDF Report          │
+                        └─────────────────────┘
 ```
 
 ---
 
-## 📊 Analysis Output
+## 📊 What You Get
 
-After analysis, the dashboard provides:
+### 🎯 Resume Match Score
+A similarity score based on the resume and job-description text.
 
-- **Resume Match Score** — similarity between the resume and job description.
-- **Skill Coverage** — percentage of detected job skills present in the resume.
-- **Matched Skills** — overlapping skills.
-- **Missing Skills** — detected job skills not found in the resume.
-- **Job Keywords** — frequently occurring job-description terms.
-- **Resume Sections** — presence of common resume sections.
-- **Recommendations** — practical suggestions based on detected gaps.
-- **PDF Report** — downloadable summary of the analysis.
+### 🧠 Skill Intelligence
+See detected resume skills, matched skills, missing skills, and overall skill coverage.
 
-> **Note:** The match score is a text-similarity signal, not a prediction of hiring success.
+### 🔑 Job Keywords
+Understand recurring terms in the target job description.
+
+### 📋 Resume Structure Check
+Check whether common sections such as **Education, Experience, Projects, Skills, Certifications, and Summary** are present.
+
+### 💡 Actionable Recommendations
+Use the detected gaps to decide which relevant skills, projects, coursework, or experience to highlight.
+
+### 📥 Downloadable Report
+Export the current analysis for later reference.
+
+> **Important:** The match score is a text-similarity indicator. It is not a prediction of hiring success and should not be treated as an automated hiring decision.
+
+---
+
+## 🖥️ User Workflow
+
+```text
+1. Upload Resume PDF
+          ↓
+2. Paste Job Description
+          ↓
+3. Click Analyze Resume
+          ↓
+4. Review Match Score
+          ↓
+5. Check Skills & Skill Gaps
+          ↓
+6. Review Keywords & Sections
+          ↓
+7. Read Recommendations
+          ↓
+8. Download PDF Report
+```
 
 ---
 
 ## 🧰 Tech Stack
 
-| Category | Technologies |
+| Layer | Technology |
 |---|---|
-| Language | Python |
-| UI | Streamlit |
-| NLP / ML | Scikit-learn, TF-IDF, Cosine Similarity |
-| PDF Processing | PyMuPDF |
-| Data | Pandas, NumPy |
-| Visualization | Plotly |
-| NLP Toolkit | spaCy |
-| Reporting | ReportLab |
-| Version Control | Git, GitHub |
+| **Language** | Python |
+| **Frontend / UI** | Streamlit |
+| **Machine Learning** | Scikit-learn |
+| **NLP Method** | TF-IDF + Cosine Similarity |
+| **PDF Extraction** | PyMuPDF |
+| **Data Processing** | Pandas, NumPy |
+| **Visualization** | Plotly |
+| **NLP Toolkit** | spaCy |
+| **Report Generation** | ReportLab |
+| **Version Control** | Git + GitHub |
 
 ---
 
@@ -116,12 +159,12 @@ After analysis, the dashboard provides:
 HireSense-AI/
 │
 ├── app/
-│   └── app.py                    # Streamlit UI & analysis workflow
+│   └── app.py                    # Streamlit application
 │
 ├── src/
 │   ├── resume_parser.py          # PDF text extraction
-│   ├── job_matcher.py            # TF-IDF similarity engine
-│   └── skill_extractor.py        # Skills, gaps & keyword analysis
+│   ├── job_matcher.py            # Similarity engine
+│   └── skill_extractor.py        # Skill & keyword analysis
 │
 ├── .github/
 │   └── ISSUE_TEMPLATE/           # Issue templates
@@ -136,20 +179,26 @@ HireSense-AI/
 
 ## ⚡ Quick Start
 
-### 1. Clone the repository
+### Prerequisites
+
+- Python 3.x
+- pip
+- Git
+
+### 1️⃣ Clone
 
 ```bash
 git clone https://github.com/yashwaje712/HireSense-AI.git
 cd HireSense-AI
 ```
 
-### 2. Create a virtual environment
+### 2️⃣ Create virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-### 3. Activate it
+### 3️⃣ Activate environment
 
 **Windows PowerShell**
 
@@ -163,50 +212,57 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-### 4. Install dependencies
+### 4️⃣ Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 5. Run the application
+### 5️⃣ Launch the app
 
 ```bash
 streamlit run app/app.py
 ```
 
-The application will open in your browser.
+---
+
+## 🧪 Example Use Case
+
+**Input**
+
+- Resume: PDF
+- Target role: Machine Learning / AI-related position
+- Job description: required skills, responsibilities, and qualifications
+
+**Output**
+
+- Resume match score
+- Detected and matched skills
+- Missing skills
+- Skill coverage
+- Important job keywords
+- Resume section checks
+- Improvement recommendations
+- Downloadable PDF report
 
 ---
 
-## 🧪 Example Workflow
+## 🎓 What This Project Demonstrates
 
-1. Upload a resume in **PDF** format.
-2. Paste the target **job description**.
-3. Click **Analyze Resume**.
-4. Review the match score and skill coverage.
-5. Check matched and missing skills.
-6. Review important job keywords and resume sections.
-7. Read the recommendations.
-8. Download the analysis report.
-
----
-
-## 🎯 Skills Demonstrated
-
-This project demonstrates practical experience with:
-
-- Natural Language Processing (NLP)
-- Text vectorization with TF-IDF
+- Natural Language Processing
+- Text vectorization
+- TF-IDF implementation
 - Cosine similarity
 - Information extraction
-- Skill and keyword analysis
+- Skill-gap analysis
+- Keyword analysis
 - Resume structure analysis
 - Machine Learning application development
-- Python modular programming
-- Streamlit dashboard development
-- PDF processing and report generation
-- Git and GitHub project workflow
+- Python modular architecture
+- Streamlit application development
+- PDF processing
+- Automated report generation
+- Git/GitHub workflow
 
 ---
 
@@ -215,33 +271,33 @@ This project demonstrates practical experience with:
 - [ ] Transformer-based semantic embeddings
 - [ ] Advanced ATS keyword weighting
 - [ ] Job-role classification
-- [ ] Expanded domain-specific skill taxonomy
+- [ ] Larger domain-specific skill taxonomy
 - [ ] Resume section quality scoring
 - [x] Downloadable PDF reports
 - [ ] Resume-to-multiple-job comparison
 - [ ] Analysis history
-- [ ] Interactive charts and visual analytics
+- [ ] Interactive visual analytics
 - [ ] Streamlit Cloud deployment
 
 ---
 
 ## 🤝 Contributing
 
-Contributions and suggestions are welcome.
+Contributions, bug reports, and feature ideas are welcome.
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test the application
+4. Test locally
 5. Open a pull request
 
-For bugs, please use the repository's issue template.
+For reproducible bugs, use the repository's issue template.
 
 ---
 
 ## ⚠️ Disclaimer
 
-HireSense AI is an **educational and portfolio project**. Its analysis is intended as an informational aid and should not be used as the sole basis for employment or hiring decisions.
+HireSense AI is an **educational and portfolio project**. The generated analysis is informational and should not be used as the sole basis for employment, recruitment, or hiring decisions.
 
 ---
 
@@ -251,10 +307,13 @@ HireSense AI is an **educational and portfolio project**. Its analysis is intend
 
 ### Yash Waje
 
-**AI & Data Science Student**  
+**AI & Data Science Student**
+
 Python • Machine Learning • Computer Vision • Deep Learning • Generative AI
 
-⭐ If you find HireSense AI useful, consider **starring the repository**!
+urlGitHub Profilehttps://github.com/yashwaje712
+
+⭐ **If you find this project useful, consider starring the repository!**
 
 </div>
 
