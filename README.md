@@ -17,18 +17,23 @@
 
 ## 🚀 Overview
 
-HireSense AI is a portfolio-focused NLP and Machine Learning application that compares a candidate's resume with a target job description. It extracts resume text, detects technical skills, calculates a TF-IDF + cosine-similarity match score, identifies missing skills, and generates practical recommendations.
+HireSense AI is a portfolio-focused NLP and Machine Learning application that compares a candidate's resume with a target job description. It extracts resume text, detects technical skills, calculates a TF-IDF + cosine-similarity match score, measures job-skill coverage, identifies skill gaps, checks common resume sections, extracts important job keywords, and provides actionable recommendations.
 
-## ✨ What You Can Do
+## ✨ Features
 
 | Feature | Description |
 |---|---|
-| 📄 Resume Parser | Extract text from PDF resumes |
-| 🎯 Match Score | Measure resume/job-description similarity |
-| 🧠 Skill Detection | Find relevant technical skills |
-| 🔎 Skill Gap | Identify missing job-relevant skills |
-| 💡 Recommendations | Suggest areas to strengthen |
-| 📊 Dashboard | View results in a clean Streamlit UI |
+| 📄 Resume Parser | Extract readable text from PDF resumes |
+| 🎯 Match Score | TF-IDF + cosine similarity compatibility score |
+| 🧠 Skill Detection | Detect 40+ technical skills and AI technologies |
+| ✅ Matched Skills | Show skills present in both resume and job description |
+| 🔎 Skill Gap | Identify detected job skills missing from the resume |
+| 📈 Skill Coverage | Calculate the percentage of detected job skills covered |
+| 🔑 Keyword Analysis | Surface frequent keywords from the target job description |
+| 📋 Section Check | Check common sections such as Education, Experience, Projects and Skills |
+| 💡 Recommendations | Generate tailored resume improvement suggestions |
+| 📥 PDF Report | Download an analysis report for the current resume/job pair |
+| 📊 Dashboard | View the complete analysis in a clean Streamlit UI |
 
 ## 🧠 How It Works
 
@@ -43,19 +48,21 @@ HireSense AI is a portfolio-focused NLP and Machine Learning application that co
                           │
                           ▼
                  ┌──────────────────┐
-                 │  Skill Extractor │
+                 │  Skill + Section │
+                 │     Analysis     │
                  └────────┬─────────┘
                           │
-                          ▼
-┌─────────────────┐  ┌──────────────────┐
-│ Job Description │─►│ TF-IDF + Cosine   │
-└─────────────────┘  │ Similarity Engine │
+┌─────────────────┐       ▼
+│ Job Description │─►┌──────────────────┐
+└─────────────────┘  │ TF-IDF + Cosine   │
+                     │ Similarity Engine │
                      └────────┬─────────┘
                               ▼
                  ┌────────────────────────┐
                  │   HireSense Dashboard  │
-                 │ Match • Skills • Gaps  │
-                 │ Recommendations        │
+                 │ Score • Skills • Gaps  │
+                 │ Keywords • Sections    │
+                 │ Recommendations • PDF  │
                  └────────────────────────┘
 ```
 
@@ -65,13 +72,15 @@ HireSense AI is a portfolio-focused NLP and Machine Learning application that co
 HireSense-AI/
 │
 ├── app/
-│   └── app.py                 # Streamlit application
+│   └── app.py                 # Streamlit application & report generator
 │
 ├── src/
 │   ├── resume_parser.py       # PDF text extraction
 │   ├── job_matcher.py         # TF-IDF similarity engine
-│   └── skill_extractor.py     # Skill detection & gap analysis
+│   └── skill_extractor.py     # Skills, coverage & keyword analysis
 │
+├── .github/
+│   └── ISSUE_TEMPLATE/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
@@ -108,19 +117,22 @@ streamlit run app/app.py
 - Natural Language Processing (NLP)
 - TF-IDF & cosine similarity
 - Information extraction
-- Machine Learning
+- Keyword and skill-gap analysis
+- Resume structure analysis
+- Machine Learning application development
 - Python application development
-- Streamlit UI development
+- Streamlit dashboard development
+- PDF report generation
 - Git & GitHub workflow
 
 ## 🔮 Roadmap
 
 - [ ] Transformer-based semantic embeddings
-- [ ] Advanced ATS keyword analysis
+- [ ] Advanced ATS keyword weighting
 - [ ] Job-role classification
-- [ ] Larger skill taxonomy
+- [ ] Larger domain-specific skill taxonomy
 - [ ] Resume section quality scoring
-- [ ] Downloadable PDF reports
+- [x] Downloadable PDF reports
 - [ ] Analysis history
 - [ ] Streamlit Cloud deployment
 
