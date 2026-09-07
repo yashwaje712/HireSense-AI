@@ -1,136 +1,142 @@
+<div align="center">
+
 # 💼 HireSense AI
 
-> **Intelligent Resume & Job Matching System** powered by NLP and Machine Learning.
+### Intelligent Resume & Job Matching System
 
-[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit)](https://streamlit.io/)
-[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-orange?logo=scikit-learn)](https://scikit-learn.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+**Turn a resume + job description into an actionable compatibility report.**
 
-HireSense AI analyzes a candidate's resume against a target job description and provides a practical compatibility report. It extracts resume text, detects relevant skills, calculates a semantic-style match score using TF-IDF and cosine similarity, identifies missing skills, and generates improvement suggestions.
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![License](https://img.shields.io/badge/License-MIT-2ea44f.svg)](LICENSE)
 
-## ✨ Features
+</div>
 
-- 📄 **PDF Resume Parsing** — Extract text from uploaded resumes.
-- 🎯 **Job Match Score** — Compare resume and job-description content using TF-IDF + cosine similarity.
-- 🧠 **Skill Detection** — Identify relevant technical skills from resume text.
-- 🔎 **Missing Skills** — Highlight skills present in the job description but not detected in the resume.
-- 💡 **Recommendations** — Suggest areas to strengthen based on missing skills.
-- 📊 **Interactive UI** — Simple Streamlit dashboard for quick analysis.
-- 🛡️ **Error Handling** — Friendly feedback when analysis cannot be completed.
+---
 
-## 🏗️ Architecture
+## 🚀 Overview
+
+HireSense AI is a portfolio-focused NLP and Machine Learning application that compares a candidate's resume with a target job description. It extracts resume text, detects technical skills, calculates a TF-IDF + cosine-similarity match score, identifies missing skills, and generates practical recommendations.
+
+## ✨ What You Can Do
+
+| Feature | Description |
+|---|---|
+| 📄 Resume Parser | Extract text from PDF resumes |
+| 🎯 Match Score | Measure resume/job-description similarity |
+| 🧠 Skill Detection | Find relevant technical skills |
+| 🔎 Skill Gap | Identify missing job-relevant skills |
+| 💡 Recommendations | Suggest areas to strengthen |
+| 📊 Dashboard | View results in a clean Streamlit UI |
+
+## 🧠 How It Works
 
 ```text
-Resume PDF ──► PDF Text Extraction ──► Skill Extraction ──┐
-                                                          ├──► Analysis Dashboard
-Job Description ───────────────► TF-IDF + Cosine Similarity ┘
-                                                          └──► Missing Skills + Recommendations
+                 ┌──────────────────┐
+                 │   Resume (PDF)   │
+                 └────────┬─────────┘
+                          ▼
+                 ┌──────────────────┐
+                 │  PDF Text Parser │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                 ┌──────────────────┐
+                 │  Skill Extractor │
+                 └────────┬─────────┘
+                          │
+                          ▼
+┌─────────────────┐  ┌──────────────────┐
+│ Job Description │─►│ TF-IDF + Cosine   │
+└─────────────────┘  │ Similarity Engine │
+                     └────────┬─────────┘
+                              ▼
+                 ┌────────────────────────┐
+                 │   HireSense Dashboard  │
+                 │ Match • Skills • Gaps  │
+                 │ Recommendations        │
+                 └────────────────────────┘
 ```
 
 ## 📁 Project Structure
 
 ```text
 HireSense-AI/
+│
 ├── app/
-│   └── app.py
+│   └── app.py                 # Streamlit application
+│
 ├── src/
-│   ├── resume_parser.py
-│   ├── job_matcher.py
-│   └── skill_extractor.py
+│   ├── resume_parser.py       # PDF text extraction
+│   ├── job_matcher.py         # TF-IDF similarity engine
+│   └── skill_extractor.py     # Skill detection & gap analysis
+│
 ├── .gitignore
 ├── LICENSE
 ├── README.md
 └── requirements.txt
 ```
 
-## 🚀 Installation
-
-### 1. Clone the repository
+## ⚡ Quick Start
 
 ```bash
 git clone https://github.com/yashwaje712/HireSense-AI.git
 cd HireSense-AI
-```
-
-### 2. Create a virtual environment
-
-```bash
 python -m venv .venv
 ```
 
-Windows PowerShell:
+### Windows PowerShell
 
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
 
-### 3. Install dependencies
+### Install & Run
 
 ```bash
 pip install -r requirements.txt
-```
-
-### 4. Run the application
-
-```bash
 streamlit run app/app.py
 ```
 
-The application will open in your browser.
-
-## 🧪 How It Works
-
-1. Upload a resume in PDF format.
-2. Paste the target job description.
-3. Click **Analyze Resume**.
-4. Review the match score and detected skills.
-5. Check missing skills and improvement recommendations.
-6. Inspect the extracted resume text when needed.
-
 ## 🧰 Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| Python | Core development |
-| Streamlit | Web application UI |
-| PyMuPDF | PDF text extraction |
-| Scikit-learn | TF-IDF and cosine similarity |
-| Pandas / NumPy | Data processing |
-| Plotly | Visualization-ready dependency |
-| spaCy | NLP-ready dependency |
-| ReportLab | Report-generation-ready dependency |
+**Python · Streamlit · PyMuPDF · Scikit-learn · Pandas · NumPy · Plotly · spaCy · ReportLab · Git/GitHub**
 
-## 🎓 Project Highlights
-
-This project demonstrates practical skills in:
+## 🎯 Skills Demonstrated
 
 - Natural Language Processing (NLP)
-- Text preprocessing and information extraction
-- Machine Learning similarity techniques
+- TF-IDF & cosine similarity
+- Information extraction
+- Machine Learning
 - Python application development
-- Streamlit dashboard development
-- Git and GitHub project management
+- Streamlit UI development
+- Git & GitHub workflow
 
-## ⚠️ Current Scope
+## 🔮 Roadmap
 
-The current version uses a curated technical-skill dictionary and TF-IDF cosine similarity. It is designed as an educational and portfolio project, not as a replacement for professional recruitment decisions.
+- [ ] Transformer-based semantic embeddings
+- [ ] Advanced ATS keyword analysis
+- [ ] Job-role classification
+- [ ] Larger skill taxonomy
+- [ ] Resume section quality scoring
+- [ ] Downloadable PDF reports
+- [ ] Analysis history
+- [ ] Streamlit Cloud deployment
 
-## 🔮 Future Enhancements
+## ⚠️ Disclaimer
 
-- Transformer-based semantic embeddings
-- Larger skill taxonomy and job-role classification
-- ATS keyword and formatting analysis
-- Resume section quality scoring
-- Downloadable PDF analysis reports
-- Persistent analysis history
-- Deployment with Streamlit Community Cloud
+HireSense AI is an educational and portfolio project. Its score is an analytical aid and should not be treated as a professional hiring decision.
 
 ## 👨‍💻 Author
 
 **Yash Waje**  
-AI & Data Science Student | Python | Machine Learning | Computer Vision | Deep Learning | Generative AI
+AI & Data Science Student · Python · Machine Learning · Computer Vision · Deep Learning · Generative AI
 
-## 📄 License
+---
 
-This project is licensed under the [MIT License](LICENSE).
+<div align="center">
+
+⭐ **If you find this project useful, consider starring the repository!** ⭐
+
+</div>
